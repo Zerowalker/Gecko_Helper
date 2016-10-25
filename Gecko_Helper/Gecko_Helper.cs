@@ -65,14 +65,14 @@ namespace Gecko_Helper
 
 
             string hex = Decimal.ToString("X");
-            tHextoDec.Text = "0x" + hex;
+            tHextoDec.Text = "" + hex;
         }
 
         private void bToDec_Click(object sender, EventArgs e)
         { try
             {
                 int Decimal = 0;
-                string Hex = tHextoDec.Text.Substring(2, tHextoDec.Text.Length - 2);
+                string Hex = tHextoDec.Text;
 
                 Decimal = Convert.ToInt32(Hex, 16);
                 tDectoHex.Text = Decimal.ToString();
@@ -89,18 +89,59 @@ namespace Gecko_Helper
             var f = float.Parse(tFloatToHex.Text);
             int d = BitConverter.ToInt32(BitConverter.GetBytes(f), 0);
             string hex = d.ToString("X");
-            tHextoFloat.Text = "0x" + hex;
+            tHextoFloat.Text = "" + hex;
 
         }
 
         private void bHextoFloat_Click(object sender, EventArgs e)
         {
-            string Hex = tHextoFloat.Text.Substring(2, tHextoFloat.Text.Length - 2);
-            int num = int.Parse(Hex, System.Globalization.NumberStyles.AllowHexSpecifier);
+            string Hex = tHextoFloat.Text;
+            int num = int.Parse(Hex, NumberStyles.AllowHexSpecifier);
 
             byte[] floatVals = BitConverter.GetBytes(num);
             float f = BitConverter.ToSingle(floatVals, 0);
             tFloatToHex.Text = f.ToString();
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string hex = tHexOffset.Text;
+                string hexOffset = tHexOffset2.Text;
+                int Decimal, Decimal2 = 0;
+                Decimal = Convert.ToInt32(hex, 16);
+                Decimal2 = Convert.ToInt32(hexOffset, 16);
+                Decimal = Decimal + Decimal2;
+                tHexOffsetResult.Text = Decimal.ToString("X");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bSub_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string hex = tHexOffset.Text;
+                string hexOffset = tHexOffset2.Text;
+                int Decimal, Decimal2 = 0;
+                Decimal = Convert.ToInt32(hex, 16);
+                Decimal2 = Convert.ToInt32(hexOffset, 16);
+                Decimal = Decimal - Decimal2;
+                tHexOffsetResult.Text = Decimal.ToString("X");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cOnTop_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = cOnTop.Checked;
         }
     }
 }

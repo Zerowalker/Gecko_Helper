@@ -49,11 +49,19 @@
             this.lFloatToHex = new System.Windows.Forms.Label();
             this.tFloatToHex = new System.Windows.Forms.TextBox();
             this.tHextoFloat = new System.Windows.Forms.TextBox();
+            this.bAdd = new System.Windows.Forms.Button();
+            this.bSub = new System.Windows.Forms.Button();
+            this.lHexOffset = new System.Windows.Forms.Label();
+            this.tHexOffset = new System.Windows.Forms.TextBox();
+            this.tHexOffset2 = new System.Windows.Forms.TextBox();
+            this.tHexOffsetResult = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cOnTop = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // bConvert
             // 
-            this.bConvert.Location = new System.Drawing.Point(103, 62);
+            this.bConvert.Location = new System.Drawing.Point(37, 62);
             this.bConvert.Name = "bConvert";
             this.bConvert.Size = new System.Drawing.Size(75, 23);
             this.bConvert.TabIndex = 0;
@@ -86,7 +94,7 @@
             // lRegister
             // 
             this.lRegister.AutoSize = true;
-            this.lRegister.Location = new System.Drawing.Point(9, 12);
+            this.lRegister.Location = new System.Drawing.Point(9, 16);
             this.lRegister.Name = "lRegister";
             this.lRegister.Size = new System.Drawing.Size(74, 13);
             this.lRegister.TabIndex = 4;
@@ -104,7 +112,7 @@
             // cLoad
             // 
             this.cLoad.AutoSize = true;
-            this.cLoad.Location = new System.Drawing.Point(185, 62);
+            this.cLoad.Location = new System.Drawing.Point(118, 68);
             this.cLoad.Name = "cLoad";
             this.cLoad.Size = new System.Drawing.Size(117, 17);
             this.cLoad.TabIndex = 5;
@@ -189,7 +197,7 @@
             // 
             // bFloattoHex
             // 
-            this.bFloattoHex.Location = new System.Drawing.Point(293, 152);
+            this.bFloattoHex.Location = new System.Drawing.Point(294, 194);
             this.bFloattoHex.Name = "bFloattoHex";
             this.bFloattoHex.Size = new System.Drawing.Size(50, 23);
             this.bFloattoHex.TabIndex = 8;
@@ -199,7 +207,7 @@
             // 
             // bHextoFloat
             // 
-            this.bHextoFloat.Location = new System.Drawing.Point(340, 152);
+            this.bHextoFloat.Location = new System.Drawing.Point(341, 194);
             this.bHextoFloat.Name = "bHextoFloat";
             this.bHextoFloat.Size = new System.Drawing.Size(54, 23);
             this.bHextoFloat.TabIndex = 8;
@@ -210,7 +218,7 @@
             // lFloatToHex
             // 
             this.lFloatToHex.AutoSize = true;
-            this.lFloatToHex.Location = new System.Drawing.Point(290, 110);
+            this.lFloatToHex.Location = new System.Drawing.Point(291, 152);
             this.lFloatToHex.Name = "lFloatToHex";
             this.lFloatToHex.Size = new System.Drawing.Size(104, 13);
             this.lFloatToHex.TabIndex = 9;
@@ -218,30 +226,109 @@
             // 
             // tFloatToHex
             // 
-            this.tFloatToHex.Location = new System.Drawing.Point(293, 126);
+            this.tFloatToHex.Location = new System.Drawing.Point(294, 168);
             this.tFloatToHex.Name = "tFloatToHex";
             this.tFloatToHex.Size = new System.Drawing.Size(100, 20);
             this.tFloatToHex.TabIndex = 10;
             // 
             // tHextoFloat
             // 
-            this.tHextoFloat.Location = new System.Drawing.Point(293, 181);
+            this.tHextoFloat.Location = new System.Drawing.Point(294, 223);
             this.tHextoFloat.Name = "tHextoFloat";
             this.tHextoFloat.Size = new System.Drawing.Size(100, 20);
             this.tHextoFloat.TabIndex = 10;
+            // 
+            // bAdd
+            // 
+            this.bAdd.Location = new System.Drawing.Point(293, 56);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(48, 23);
+            this.bAdd.TabIndex = 8;
+            this.bAdd.Text = "+";
+            this.bAdd.UseVisualStyleBackColor = true;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
+            // 
+            // bSub
+            // 
+            this.bSub.Location = new System.Drawing.Point(347, 56);
+            this.bSub.Name = "bSub";
+            this.bSub.Size = new System.Drawing.Size(48, 23);
+            this.bSub.TabIndex = 8;
+            this.bSub.Text = "-";
+            this.bSub.UseVisualStyleBackColor = true;
+            this.bSub.Click += new System.EventHandler(this.bSub_Click);
+            // 
+            // lHexOffset
+            // 
+            this.lHexOffset.AutoSize = true;
+            this.lHexOffset.Location = new System.Drawing.Point(308, 16);
+            this.lHexOffset.Name = "lHexOffset";
+            this.lHexOffset.Size = new System.Drawing.Size(76, 13);
+            this.lHexOffset.TabIndex = 9;
+            this.lHexOffset.Text = "Hex Calculator";
+            // 
+            // tHexOffset
+            // 
+            this.tHexOffset.Location = new System.Drawing.Point(293, 32);
+            this.tHexOffset.Name = "tHexOffset";
+            this.tHexOffset.Size = new System.Drawing.Size(100, 20);
+            this.tHexOffset.TabIndex = 10;
+            // 
+            // tHexOffset2
+            // 
+            this.tHexOffset2.Location = new System.Drawing.Point(295, 85);
+            this.tHexOffset2.Name = "tHexOffset2";
+            this.tHexOffset2.Size = new System.Drawing.Size(100, 20);
+            this.tHexOffset2.TabIndex = 10;
+            // 
+            // tHexOffsetResult
+            // 
+            this.tHexOffsetResult.Location = new System.Drawing.Point(293, 126);
+            this.tHexOffsetResult.Name = "tHexOffsetResult";
+            this.tHexOffsetResult.ReadOnly = true;
+            this.tHexOffsetResult.Size = new System.Drawing.Size(100, 20);
+            this.tHexOffsetResult.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(297, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Calculation Result";
+            // 
+            // cOnTop
+            // 
+            this.cOnTop.AutoSize = true;
+            this.cOnTop.Location = new System.Drawing.Point(441, 225);
+            this.cOnTop.Name = "cOnTop";
+            this.cOnTop.Size = new System.Drawing.Size(98, 17);
+            this.cOnTop.TabIndex = 11;
+            this.cOnTop.Text = "Always On Top";
+            this.cOnTop.UseVisualStyleBackColor = true;
+            this.cOnTop.CheckedChanged += new System.EventHandler(this.cOnTop_CheckedChanged);
             // 
             // Gecko_Helper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 265);
+            this.Controls.Add(this.cOnTop);
+            this.Controls.Add(this.tHexOffsetResult);
+            this.Controls.Add(this.tHexOffset2);
             this.Controls.Add(this.tHextoFloat);
             this.Controls.Add(this.tHextoDec);
+            this.Controls.Add(this.tHexOffset);
             this.Controls.Add(this.tFloatToHex);
             this.Controls.Add(this.tDectoHex);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lHexOffset);
             this.Controls.Add(this.lFloatToHex);
+            this.Controls.Add(this.bSub);
             this.Controls.Add(this.lDecToHex);
             this.Controls.Add(this.bHextoFloat);
+            this.Controls.Add(this.bAdd);
             this.Controls.Add(this.lOffset);
             this.Controls.Add(this.bFloattoHex);
             this.Controls.Add(this.bToDec);
@@ -286,6 +373,14 @@
         private System.Windows.Forms.Label lFloatToHex;
         private System.Windows.Forms.TextBox tFloatToHex;
         private System.Windows.Forms.TextBox tHextoFloat;
+        private System.Windows.Forms.Button bAdd;
+        private System.Windows.Forms.Button bSub;
+        private System.Windows.Forms.Label lHexOffset;
+        private System.Windows.Forms.TextBox tHexOffset;
+        private System.Windows.Forms.TextBox tHexOffset2;
+        private System.Windows.Forms.TextBox tHexOffsetResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cOnTop;
     }
 }
 
